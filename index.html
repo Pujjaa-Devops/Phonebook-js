@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New-Year Trip</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Verdana', sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #83a4d4, #b6fbff);
+      }
+
+      .contact-container {
+        width: 400px;
+        padding: 25px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .contact-container .heading {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      .contact-container input[type="text"] {
+        width: 85%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 2px solid #83a4d4;
+        border-radius: 25px;
+        font-size: 16px;
+        text-align: center;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .contact-container input[type="text"]:focus {
+        border-color: #555;
+      }
+
+      .contact-container button {
+        padding: 12px 25px;
+        font-size: 18px;
+        background: #83a4d4;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-container button:hover {
+        background: #568db0;
+      }
+
+      .contact-container p {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-container">
+      <h1 class="heading">Phone-Book 📞</h1>
+      <input type="text" id="search" placeholder="Search Contact" />
+      <button type="button" onclick="search()">Search</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      const contacts = {
+        Puja: "101010101010",
+        Neha: "234567839",
+        Siddhi: "46667483789",
+        Smita: "567989293",
+      };
+
+      function search() {
+        const searchInput = document.getElementById("search");
+        const query = searchInput.value;
+        const mobile = contacts[query];
+        const result = document.getElementById("result");
+
+        if (mobile) {
+          result.innerText = `Mobile number of ${query} is ${mobile}`;
+        } else {
+          result.innerText = `Contact not found`;
+        }
+      }
+    </script>
+  </body>
+</html>
